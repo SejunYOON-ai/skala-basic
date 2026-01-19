@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+        }
+
+        /* 전체 레이아웃 - Grid */
+        .container {
+            width: 90%;
+            margin: 40px auto;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            row-gap: 25px;
+        }
+
+        /* 검색 영역 - Flex */
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            padding: 8px 18px;
+            border: 1px solid #777;
+            background: #f3f3f3;
+            cursor: pointer;
+        }
+
+        /* 목록 영역 */
+        .list-area {
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            row-gap: 10px;
+        }
+
+        .list-area h3 {
+            margin: 0;
+        }
+
+        .line {
+            border-top: 1px solid #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="search-box">
+        <input type="text" placeholder="키워드 입력">
+        <button>검색</button>
+    </div>
+
+    <div class="list-area">
+        <h3>목록형 데이터 영역</h3>
+        <div class="line"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
