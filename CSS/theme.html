@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테마전환 예제</title>
+</head>
+
+<body>
+    <h1>테마 전환 예제</h1>
+    <h2>라디오 버튼을 사용하여 테마를 전환하세요</h2>
+</body>
+
+</html>
+<style>
+    :root {
+        --background-color: white;
+        --text-color: black;
+    }
+
+    [data-theme="dark"] {
+        --background-color: black;
+        --text-color: white;
+    }
+
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .theme-switcher {
+        margin-top: 20px;
+    }
+</style>
+
+
+
+<div class="theme-switcher">
+    <label>
+        <input type="radio" name="theme" value="light" checked>
+        화이트 테마
+    </label>
+    <label>
+        <input type="radio" name="theme" value="dark">
+        다크 테마
+    </label>
+</div>
+
+<script>
+    const themeSwitcher = document.querySelector('.theme-switcher');
+    const body = document.body;
+
+    themeSwitcher.addEventListener('change', (event) => {
+        if (event.target.name === 'theme') {
+            body.setAttribute('data-theme', event.target.value);
+        }
+    });
+</script>

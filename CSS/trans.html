@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .box:hover {
+            background-color: yellow;
+        }
+
+        .rotate {
+            transform: rotate(45deg);
+            transition-timing-function: 0.5s ease-in-out;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="hoverBox">Hover me</div>
+    <button onclick="rotateBox()">Click Me</button>
+
+    <script>
+        function rotateBox() {
+            const box = document.getElementById('hoverBox');
+            box.classList.toggle('rotate');
+        }
+    </script>
+</body>
+</html>

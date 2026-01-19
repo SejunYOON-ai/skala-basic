@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<style>
+    body {
+        display: grid;
+        grid-template-areas: 
+            "header header"
+            "main sidebar"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto 1fr auto;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    header {
+        grid-area: header;
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+    }
+
+    main {
+        grid-area: main;
+        background-color: #eaeaea;
+        padding: 10px;
+    }
+
+    aside {
+        grid-area: sidebar;
+        background-color: #dcdcdc;
+        padding: 10px;
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            grid-template-areas: 
+                "header"
+                "main"
+                "sidebar"
+                "footer";
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+        }
+    }
+</style>
+
+<header>
+    <h1>Responsive Layout</h1>
+</header>
+<main>
+    <p>This is the main content area.</p>
+</main>
+<aside>
+    <p>This is the sidebar content.</p>
+</aside>
+<footer>
+    <p>Footer content goes here.</p>
+</footer>
