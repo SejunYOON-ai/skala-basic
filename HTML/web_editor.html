@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <title>심플 웹 에디터</title>
+
+    <style>
+    body{font-family: Arial;}.toolbar {margin-bottom: 10px;}.toolbar button {padding: 6px 10px;
+    margin-right: 5px;  cursor: pointer;}
+
+    #editor {border: 2px solid #333;min-height: 150px;padding: 12px;line-height: 1.6;}
+
+    #editor:empty:before {content: attr(data-placeholder);color: #aaa;}.result {margin-top: 20px;}
+
+    textarea {width: 100%;height: 120px;}</style>
+</head>
+
+<body>
+
+    <h3>심플 웹 에디터</h3>
+
+    <!-- 버튼들을 만들어줌-->
+    <div class="toolbar">
+    <button onclick="cmd('bold')">굵게</button>
+    <button onclick="cmd('italic')">기울임</button>
+    <button onclick="cmd('underline')">밑줄</button>
+    <button onclick="cmd('strikeThrough')">취소선</button>
+    <button onclick="save()">저장</button>
+    <input type="color" onchange="setColor(this.value)">
+    </div>
+    
+    <!-- 입력을 할 수 있게 해줌-->
+    <div id="editor" contenteditable="true" data-placeholder="여기에 문장을 입력하고 단어에 원하는 스타일을 적용해 보세요!"></div>
+
+    <!-- 결과를 출력할 곳은 만듬-->
+    <div class="result">
+    <h4>저장된 HTML 결과</h4>
+    <textarea id="output" readonly></textarea>
+    </div>
+
+    <!-- 입력한 값이 결과에 출력되도록함-->
+    <script>
+    function cmd(command) {
+    document.execCommand(command, false, null);
+    update();
+    }
+
+    function setColor(color) {
+    document.execCommand("foreColor", false, color);
+    update();
+    }
+
+    function update() {
+    document.getElementById("output").value =
+        document.getElementById("editor").innerHTML;
+    }
+
+    document.getElementById("editor").addEventListener("input", update);
+    </script>
+
+</body>
+
+</html>

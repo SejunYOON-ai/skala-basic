@@ -11,24 +11,21 @@
             name: "홍길동",
             age: 30,
             skills: ["검술", "변신", "월담"],
+            address: {
+                city: "서울",
+                zipCode: "12345"
+            },
             greet: function() {
                 return `안녕하세요, 저는 ${this.name}이고나이는 ${this.age}입니다.`;
             }
         };
 
-        console.log(person.name);
-
-        const message = JSON.stringify(person);
-
-        console.log(message, person);
-
-        person.skills = undefined
-        delete person.skills;
-        console.log(message, person);
-
-        const hong = JSON.parse(message);
-    
-        console.log(hong);
+        const alice = structuredClone(person);
+        alice.name = "앨리스";
+        alice.age = 31;
+        alice.address.city = "뉴욕";    
+        alice.skills.push("마법");
+        console.log(person, alice);
 
     
     </script>
