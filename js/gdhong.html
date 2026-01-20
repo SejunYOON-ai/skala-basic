@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동의 식량배분</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const foods = [
+        "쌀", "보리", "콩", "감자", "양파",
+        "마늘", "배추", "무", "고구마", "호박"
+    ];
+
+    const poors = ["철수", "영희", "민수"];
+    const results = [];
+
+    // Initialize results array with poors
+    poors.forEach(poor => {
+        results.push({ name: poor, items: [] });
+    });
+
+    // Distribute foods
+    foods.forEach((food, index) => {
+        const poorIndex = index % poors.length;
+        results[poorIndex].items.push(food);
+    });
+
+    // Generate table
+    document.write('<table border="1" style="border-collapse: collapse; text-align: center;">');
+    document.write('<tr><th>이름</th><th>받은 물건</th></tr>');
+    results.forEach(result => {
+        document.write(`<tr><td>${result.name}</td><td>${result.items.join(", ")}</td></tr>`);
+    });
+    document.write('</table>');
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 객체</title>
+</head>
+<body>
+    <script>
+        const person = {
+            name: "홍길동",
+            age: 30,
+            skills: ["검술", "변신", "월담"],
+            greet: function() {
+                return `안녕하세요, 저는 ${this.name}이고나이는 ${this.age}입니다.`;
+            }
+        };
+
+        console.log(person.name);
+
+        const message = JSON.stringify(person);
+
+        console.log(message, person);
+
+        person.skills = undefined
+        delete person.skills;
+        console.log(message, person);
+
+        const hong = JSON.parse(message);
+    
+        console.log(hong);
+
+    
+    </script>
+</body>
+</html>

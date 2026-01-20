@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한글 판독기</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function isKorean(text) {
+        const koreanRegex = /^[가-힣]+$/;
+        return koreanRegex.test(text);
+    }
+
+    const userInput = prompt("문자열을 입력하세요:");
+    if (isKorean(userInput)) {
+        document.write(`TRUE: ${userInput}는 한글입니다.`);
+    } else {
+        document.write(`FALSE: ${userInput}에 한글 외의 문자가 포함되어 있습니다.`);
+    }
+</script>
